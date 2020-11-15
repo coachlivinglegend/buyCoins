@@ -1,0 +1,382 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+    /* font-family: 'Roboto', sans-serif; */
+}
+
+header{
+    background-color: black;
+    display: flex;
+    padding: 16px;
+    font-size: 14px;
+    align-items: center;
+}
+
+.github__header {
+    margin-right: 16px;
+}
+
+.header__nav{
+    display: flex;
+}
+
+.header__nav input{
+    margin-right: 16px;
+    height: 28px;
+    width: 250px;
+    background-color: black;
+    border-radius: 5px;
+    padding: 0 10px;
+    color: whitesmoke;
+    border: 1px solid rgb(53, 60, 66);
+}
+
+.header__nav > nav {
+    display: flex;
+}
+
+.header__notif{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.header__notif > *{
+    margin-right: 18px;
+}
+
+i {
+    color: white;
+    /* font-weight: 600; */
+}
+
+.fa-bell{
+    font-size: 20px;
+
+}
+
+.nav__links{
+    display: flex;
+    align-items: center;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav__links a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.small__avatar{
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: green;
+}
+
+.notif__bell{
+    position: relative;
+}
+
+.notif__bell__unread{
+    position: absolute;
+    z-index: 2;
+    width: 12px;
+    height: 12px;
+    background-image: linear-gradient(#54a3ff,#006eed);
+    border: 2px solid rgb(53, 60, 66);
+    border-radius: 50%;
+    top: -7px;
+    left: 7px;
+}
+
+.for__arrow {
+    display: flex;
+    align-items: center;
+}
+
+.for__arrow > *{
+    margin-right: 5px;
+}
+
+.main__view{
+    margin-top: 10px;
+}
+
+.main__view__nav{
+    /* padding-top: 10px; */
+    position: sticky;
+    background-color: #fff;
+    top: 0;
+    padding: 10px 32px 0 32px;
+    display: flex;
+    border-bottom: 1px solid #d1d5da;
+    transition: all 0.5 ease;
+    
+}
+
+.mini__profile{
+    width: 25%;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    /* border: 1px solid sandybrown */
+}
+
+.main__nav{
+    /* border: 1px solid aqua; */
+    padding: 0 16px;
+    width: 75%;
+
+}
+
+.main__nav__nav{
+    /* border: 1px solid darkgoldenrod; */
+    display: flex;
+}
+
+.main__nav__nav div {
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.main__nav__nav div > svg {
+    margin-right: 10px;
+}
+
+.repo__nav{
+    border-bottom: 2px solid rgb(249, 130, 108);
+}
+.fa-twitter{
+    color: #959da5;
+}
+
+
+.repoCount{
+    margin: 0px 10px;
+    background-color: #d1d5da;
+    padding: 2px 5px;
+    border-radius: 40%;
+}
+button{
+    color: #24292e;
+    background-color: #fafbfc;
+    font-size: 13px;
+    vertical-align: middle;
+    padding: 5px 16px !important;
+    outline: none;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    font-weight: 500;
+    line-height: 20px;
+}
+.user__details{
+    display: flex;
+    padding: 0 32px
+}
+
+svg{
+    fill: #959da5
+}
+
+.repo__nav svg {
+    fill: black !important
+}
+.user__profile{
+    width: 25%;
+    padding: 0 16px;
+    /* border: 1px solid firebrick */
+}
+
+.user__repo{
+    width: 75%;
+    padding: 0 16px;
+}
+
+.image__wrapper{
+    width: 95%
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+.hidden__avatar{
+    height: 32px;
+    width: 32px;
+    margin-right: 6px;
+}
+
+.hidden__follow{
+    display: flex;
+    flex-direction: column;
+    /* margin-bottom: 5px; */
+
+}
+
+.hidden__follow button {
+    padding: 0 8px !important;
+    line-height: 1.5;
+    transition: opacity 0.2s;
+}
+
+.image__wrapper img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    z-index: 10;
+    display: inline-block;
+    margin-top: -15px;
+    position: relative;
+}
+
+.user__name{
+    padding: 16px 0;
+}
+
+.user__name__name{
+    font-size: 26px;
+   
+    
+}
+
+.user__name__handle{
+    font-size: 20px;
+    color: #586069
+}
+
+.user__bio{
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.button__wrap{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.button__follow{
+    width: calc(95% - 50px);
+    cursor: pointer;
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.button__threeDot{
+    cursor: pointer;
+    width: 50px;
+}
+
+.repo__find{
+    display: flex;
+    padding: 16px 0;
+    border-bottom: 1px solid #d1d5da;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.repo__find__input{
+    font-size: 14px;
+    line-height: 20px;
+    height: 32px;
+    color: #24292e;
+    outline: none;
+    border-radius: 6px;
+    padding: 5px 12px;
+    margin-right: 16px;
+    border: 1px solid #d1d5da;
+    width: calc(100% - 260px);
+}
+
+.repo__find .fas{
+    color: #24292e;
+}
+
+.repo__find .button__wrapper{
+    display: flex;
+    align-items: center;
+}
+
+.user__repo__list__items {
+    padding: 24px 0;
+    border-bottom: 1px solid #d1d5da;
+    display: flex;
+    justify-content: space-between;
+}
+
+.repo__name{
+    color: #0366D6;
+    font-size: 20px;
+}
+
+.repo__name:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.repo__name > p{
+    font-weight: 600;
+}
+.repo__desc{
+    color: #586069;
+    font-size: 14px;
+}
+
+.user__repo__list__ul{
+    margin-top: 0;
+}
+
+.user__repo__list__items > div > * {
+    padding: 4px 0;
+}
+
+    .repo__language__color{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: forestgreen;
+    display: inline-block;
+}
+
+.repo__miniDetails{
+    display: flex;
+    align-items: center;
+}
+
+.repo__miniDetails > span{
+    margin-right: 16px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.repo__miniDetails > span > * {
+    margin-right: 6px;
+    color: #586069;
+    fill: #586069;
+}
+
+.hover-blue > *:hover{
+    fill: #0366D6;
+    color: #0366D6;
+    cursor: pointer;
+}
