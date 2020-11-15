@@ -67,6 +67,7 @@ i {
 a{
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
 }
 
 .nav__links a {
@@ -325,11 +326,29 @@ ul{
 }
 
 .repo__name{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.repo__name p{
     color: #0366D6;
     font-size: 20px;
 }
 
-.repo__name:hover{
+.repo__private{
+    display: inline-block;
+    padding: 0 7px;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 18px;
+    border-radius: 2em;
+    border: 1px solid #e1e4e8;
+    color: #586069;
+    margin-top: 4px;
+    margin-left: 10px;
+}
+
+.repo__name > p:hover{
     text-decoration: underline;
     cursor: pointer;
 }
@@ -354,12 +373,12 @@ ul{
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: forestgreen;
     display: inline-block;
 }
 
 .repo__miniDetails{
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
 }
 
@@ -379,4 +398,103 @@ ul{
     fill: #0366D6;
     color: #0366D6;
     cursor: pointer;
+}
+
+.headerForMobile{
+    background-color: black;
+    display: none;
+    padding: 16px;
+    font-size: 14px;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.main__nav.small {
+    display: none;
+    width: 100% !important;
+    padding: 0;
+}
+
+@media screen and (max-width: 565px) {
+    .main__nav.small svg {
+        display: none;
+    }
+}
+@media screen and (max-width: 460px) {
+    .main__nav__nav div {
+        padding: 8px;
+    }
+    .main__nav__nav {
+        overflow-x: auto;
+    }
+}
+
+@media screen and (max-width: 775px) {
+    .headerForMobile{
+        display: flex;
+    }
+    header{
+        display: none;
+    }
+
+    .main__view__nav{
+        display: none;
+    }
+
+    .main__nav.small {
+        display: block;
+    }
+
+    .user__details {
+        flex-direction: column;
+    }
+    .user__profile{
+        width: 100%;
+    }
+    .user__repo{
+        width: 100%
+    }
+
+    .image__wrapper{
+        max-width: 120px;
+        margin-right: 24px;
+    }
+    .image__wrapper img {
+        margin-top: 0px;
+    }
+
+    .user__profile__mainDetails {
+        display: flex;
+    }
+
+    .button__wrap{
+        margin-top: 10px;
+    }
+
+    .flexForMobile {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .user__details{
+        padding: 0 8px;
+    }
+
+    .ul__company{
+        display: none;
+    }
+
+    .repo__find{
+        flex-direction: column;
+    }
+    .repo__find__input {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 16px;
+    }
+
+    .repo__find .button__wrapper {
+        align-self: flex-start;
+    }
 }
