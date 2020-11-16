@@ -25,14 +25,12 @@ export const query = `
             repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
                 totalCount
                 nodes {
-                    id
                     description
                     updatedAt
                     stargazerCount
                     descriptionHTML
                     forkCount
                     primaryLanguage {
-                        id
                         name
                         color
                     }
@@ -42,9 +40,6 @@ export const query = `
                     name
                     owner {
                         login
-                    }
-                    licenseInfo {
-                        name
                     }
                     url
                     isArchived

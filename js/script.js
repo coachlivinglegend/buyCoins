@@ -15,68 +15,12 @@ window.addEventListener('scroll', () => {
     }
 })
 
-
 //show or hide the mobile nav bar
 const hideMobileNav = () => {
   document.querySelector('.mobileNav').classList.toggle('active')
 }
 document.querySelector('.hamb').addEventListener('click', hideMobileNav)
 
-// const query = 
-// `
-// {
-//   repositoryOwner(login: "coachlivinglegend") {
-//     avatarUrl
-//     login
-//     url
-//     ... on User {
-//       bio
-//       company
-//       followers {
-//         totalCount
-//       }
-//       following {
-//         totalCount
-//       }
-//       name
-//       location
-//       twitterUsername
-//       url
-//       websiteUrl
-//       starredRepositories {
-//         totalCount
-//       }
-//     }
-//     repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
-//       totalCount
-//       nodes {
-//         id
-//         description
-//         updatedAt
-//         stargazerCount
-//         descriptionHTML
-//         forkCount
-//         primaryLanguage {
-//           id
-//           name
-//           color
-//         }
-//         homepageUrl
-//         isFork
-//         isPrivate
-//         name
-//         owner {
-//           login
-//         }
-//         licenseInfo {
-//           name
-//         }
-//         url
-//         isArchived
-//       }
-//     }
-//   }
-// }`
 //funny looking Github Personal Access Token because Github would rather die than let you commit thier token in your repo
 const token = '_1_3_e_3_d_1_a_2_d_1_3_a_0_d_0_2_6_9_5_f_7_6_4_1_e_9_b_f_4_8_0_b_b_2_9_f_9_3_e_0_'
 
@@ -114,7 +58,7 @@ const setRepoProfile = ({avatarUrl, bio, company, followers, following, location
   document.querySelector('.follower__count').innerHTML = `${followers.totalCount}`
   document.querySelector('.following__count').innerHTML = `${following.totalCount}`
   document.querySelector('.star__count').innerHTML = `${starredRepositories.totalCount}`
-  document.querySelector('.repoCount').innerHTML = `${repositories.totalCount}`
+  document.querySelectorAll('.repoCount').forEach(count => count.innerHTML = `${repositories.totalCount}`)
 
   // check if it exists; if it does, set the text otherwise hide the node.
   company ? document.querySelector('.user__company').innerHTML = `${company}` : document.querySelector('.li__company').style.display = "none"
@@ -125,7 +69,7 @@ const setRepoProfile = ({avatarUrl, bio, company, followers, following, location
 
 //set the repositories
 const setRepoList = ({nodes}) => {
-  const repoToRender = nodes.map(({description, forkCount, isFork, isPrivate, licenseInfo, name, owner, primaryLanguage, isArchived, stargazerCount, updatedAt, url}) => {
+  const repoToRender = nodes.map(({description, forkCount, isPrivate, name, primaryLanguage, isArchived, stargazerCount, updatedAt, url}) => {
     return `
       <li class="user__repo__list__items">
         <div>
