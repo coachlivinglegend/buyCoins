@@ -332,6 +332,11 @@ ul{
     font-size: 20px;
 }
 
+.repo__name a {
+    overflow-wrap: break-word;
+    word-wrap: break-word
+}
+
 .repo__private{
     display: inline-block;
     padding: 0 7px;

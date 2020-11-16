@@ -1,4 +1,5 @@
-// import query from './utils'
+import query from './utils'
+console.log(query)
 window.addEventListener('scroll', () => {
     if (window.scrollY >= 330) {
         document.querySelector('.mini__profile').style.opacity = 1
@@ -17,61 +18,61 @@ document.querySelector('.hamb').addEventListener('click', () => {
   document.querySelector('.mobileNav').classList.toggle('active')
 })
 
-const query = 
-`
-{
-  repositoryOwner(login: "coachlivinglegend") {
-    avatarUrl
-    login
-    url
-    ... on User {
-      bio
-      company
-      followers {
-        totalCount
-      }
-      following {
-        totalCount
-      }
-      name
-      location
-      twitterUsername
-      url
-      websiteUrl
-      starredRepositories {
-        totalCount
-      }
-    }
-    repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
-      totalCount
-      nodes {
-        id
-        description
-        updatedAt
-        stargazerCount
-        descriptionHTML
-        forkCount
-        primaryLanguage {
-          id
-          name
-          color
-        }
-        homepageUrl
-        isFork
-        isPrivate
-        name
-        owner {
-          login
-        }
-        licenseInfo {
-          name
-        }
-        url
-        isArchived
-      }
-    }
-  }
-}`
+// const query = 
+// `
+// {
+//   repositoryOwner(login: "coachlivinglegend") {
+//     avatarUrl
+//     login
+//     url
+//     ... on User {
+//       bio
+//       company
+//       followers {
+//         totalCount
+//       }
+//       following {
+//         totalCount
+//       }
+//       name
+//       location
+//       twitterUsername
+//       url
+//       websiteUrl
+//       starredRepositories {
+//         totalCount
+//       }
+//     }
+//     repositories(first: 20, orderBy: {field: UPDATED_AT, direction: DESC}) {
+//       totalCount
+//       nodes {
+//         id
+//         description
+//         updatedAt
+//         stargazerCount
+//         descriptionHTML
+//         forkCount
+//         primaryLanguage {
+//           id
+//           name
+//           color
+//         }
+//         homepageUrl
+//         isFork
+//         isPrivate
+//         name
+//         owner {
+//           login
+//         }
+//         licenseInfo {
+//           name
+//         }
+//         url
+//         isArchived
+//       }
+//     }
+//   }
+// }`
 
 const token = '_1_3_e_3_d_1_a_2_d_1_3_a_0_d_0_2_6_9_5_f_7_6_4_1_e_9_b_f_4_8_0_b_b_2_9_f_9_3_e_0_'
 const options = {
