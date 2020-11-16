@@ -1,3 +1,4 @@
+/* GLOBAL */
 * {
     margin: 0;
     box-sizing: border-box;
@@ -7,6 +8,52 @@ body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 }
 
+i {
+    color: white;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #0366D6;
+}
+
+button{
+    color: #24292e;
+    background-color: #fafbfc;
+    font-size: 13px;
+    vertical-align: middle;
+    padding: 5px 16px !important;
+    outline: none;
+    border: 1px solid #d1d5da;
+    border-radius: 6px;
+    font-weight: 500;
+    line-height: 20px;
+}
+
+img{
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+}
+
+svg{
+    fill: #959da5
+}
+
+ul{
+    list-style: none;
+    padding-left: 0;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+/* NAVIGATION */
 header{
     background-color: #24292e;
     display: flex;
@@ -48,10 +95,6 @@ header{
     margin-right: 18px;
 }
 
-i {
-    color: white;
-}
-
 .fa-bell{
     font-size: 20px;
 
@@ -62,22 +105,16 @@ i {
     align-items: center;
 }
 
-a{
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-}
-
-a:hover{
-    text-decoration: underline;
-    color: #0366D6;
-}
-
 .nav__links a {
     text-decoration: none;
     color: white;
     margin-right: 10px;
     font-weight: 600;
+}
+
+.webForMob{
+    display: none;
+    margin-bottom: 8px;
 }
 
 .small__avatar{
@@ -124,7 +161,6 @@ a:hover{
     display: flex;
     border-bottom: 1px solid #d1d5da;
     transition: all 0.5 ease;
-    
 }
 
 .mini__profile{
@@ -138,7 +174,6 @@ a:hover{
 .main__nav{
     padding: 0 16px;
     width: 75%;
-
 }
 
 .main__nav__nav{
@@ -159,10 +194,10 @@ a:hover{
 .repo__nav{
     border-bottom: 2px solid rgb(249, 130, 108);
 }
+
 .fa-twitter{
     color: #959da5;
 }
-
 
 .repoCount{
     margin: 0px 10px;
@@ -170,25 +205,14 @@ a:hover{
     padding: 2px 5px;
     border-radius: 40%;
 }
-button{
-    color: #24292e;
-    background-color: #fafbfc;
-    font-size: 13px;
-    vertical-align: middle;
-    padding: 5px 16px !important;
-    outline: none;
-    border: 1px solid #d1d5da;
-    border-radius: 6px;
-    font-weight: 500;
-    line-height: 20px;
-}
+
+/* END OF HEADER */
+
+
+/*USER SIDE BAR*/
 .user__details{
     display: flex;
     padding: 0 32px
-}
-
-svg{
-    fill: #959da5
 }
 
 .repo__nav svg {
@@ -208,12 +232,6 @@ svg{
     width: 95%
 }
 
-img{
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%;
-}
-
 .hidden__avatar{
     height: 32px;
     width: 32px;
@@ -223,7 +241,6 @@ img{
 .hidden__follow{
     display: flex;
     flex-direction: column;
-
 }
 
 .hidden__follow button {
@@ -247,9 +264,7 @@ img{
 }
 
 .user__name__name{
-    font-size: 26px;
-   
-    
+    font-size: 26px;  
 }
 
 .user__name__handle{
@@ -273,18 +288,13 @@ img{
     cursor: pointer;
 }
 
-ul{
-    list-style: none;
-    padding-left: 0;
-    margin-top: 10px;
-    font-size: 14px;
-}
-
 .button__threeDot{
     cursor: pointer;
     width: 50px;
 }
 
+
+/* REPO LIST */
 .repo__find{
     display: flex;
     padding: 16px 0;
@@ -371,7 +381,7 @@ ul{
     padding: 4px 0;
 }
 
-    .repo__language__color{
+.repo__language__color{
     width: 12px;
     height: 12px;
     border-radius: 50%;
@@ -465,6 +475,7 @@ ul{
     padding: 0;
 }
 
+/* MEDIA QUERIES FOR RESPONSIVENESS*/
 @media screen and (max-width: 565px) {
     .main__nav.small svg {
         display: none;
@@ -478,12 +489,6 @@ ul{
         overflow-x: auto;
     }
 }
-
-.webForMob{
-    display: none;
-    margin-bottom: 8px;
-}
-
 @media screen and (max-width: 775px) {
     .headerForMobile{
         display: flex;

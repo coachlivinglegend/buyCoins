@@ -1,12 +1,13 @@
 import {query} from './utils.js'
-console.log(query)
+
+//show or hide the mini profile avatar when the main avatar is out of viewport
 window.addEventListener('scroll', () => {
     if (window.scrollY >= 330) {
         document.querySelector('.mini__profile').style.opacity = 1
     } else {
         document.querySelector('.mini__profile').style.opacity = 0
     }
-    
+  //remove or add padding to the top of the nav
     if (window.scrollY >= 60) {
         document.querySelector('.main__view__nav').style.paddingTop = 0
     } else {
@@ -14,9 +15,12 @@ window.addEventListener('scroll', () => {
     }
 })
 
-document.querySelector('.hamb').addEventListener('click', () => {
+
+//show or hide the mobile nav bar
+const hideMobileNav = () => {
   document.querySelector('.mobileNav').classList.toggle('active')
-})
+}
+document.querySelector('.hamb').addEventListener('click', hideMobileNav)
 
 // const query = 
 // `
@@ -73,28 +77,36 @@ document.querySelector('.hamb').addEventListener('click', () => {
 //     }
 //   }
 // }`
-
+//funny looking Github Personal Access Token because Github would rather die than let you commit thier token in your repo
 const token = '_1_3_e_3_d_1_a_2_d_1_3_a_0_d_0_2_6_9_5_f_7_6_4_1_e_9_b_f_4_8_0_b_b_2_9_f_9_3_e_0_'
+
+//options for the API call
 const options = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      //.replace removes the underscores used to disguise the token
       "Authorization": `Bearer ${token.replace(/_/g, "")}`,
     },
     body: JSON.stringify({ query })
 }
+const fetchRepo = () => {
+  //API call
+  fetch('https://api.github.com/graphql', options)
+  .then(res => res.json())
+  .then(data => {
+    setRepoProfile(data.data.repositoryOwner)
+    setRepoList(data.data.repositoryOwner.repositories)
+  })
+  .catch(error => console.log(error))
+}
+fetchRepo()
 
-fetch('https://api.github.com/graphql', options)
-.then(res => res.json())
-.then(data => {
-  console.log(data.data)
-  setRepoProfile(data.data.repositoryOwner)
-  setRepoList(data.data.repositoryOwner.repositories)
-})
-
+// set user details
 const setRepoProfile = ({avatarUrl, bio, company, followers, following, location, login, name, twitterUsername, url, websiteUrl, repositories, starredRepositories}) => {
   document.querySelectorAll('.user__avatar').forEach(img => img.src = `${avatarUrl}`)
   document.querySelector('.user__name__name').innerHTML = `${name}`
+  document.querySelector('.mobile__avatar__handle').innerHTML = `${login}`
   document.querySelectorAll('.user__handle').forEach(handle => handle.innerHTML = `${login}`)
   document.querySelector('.user__bio').innerHTML = `${bio}`
   document.querySelector('.user__url').alt = `${name}`
@@ -104,14 +116,15 @@ const setRepoProfile = ({avatarUrl, bio, company, followers, following, location
   document.querySelector('.star__count').innerHTML = `${starredRepositories.totalCount}`
   document.querySelector('.repoCount').innerHTML = `${repositories.totalCount}`
 
+  // check if it exists; if it does, set the text otherwise hide the node.
   company ? document.querySelector('.user__company').innerHTML = `${company}` : document.querySelector('.li__company').style.display = "none"
   location ? document.querySelector('.user__location').innerHTML = `${location}` : document.querySelector('.li__location').style.display = "none"
   websiteUrl ? document.querySelectorAll('.user__website').forEach(url => {url.innerHTML = `${websiteUrl}`; url.alt= `${name}`; url.href=`${websiteUrl}`}) : document.querySelector('.li__website').style.display = "none"
   twitterUsername ? document.querySelector('.user__twitter').innerHTML = `@${twitterUsername}` : document.querySelector('.li__twitter').style.display = "none"
 }
 
+//set the repositories
 const setRepoList = ({nodes}) => {
-  console.log({nodes})
   const repoToRender = nodes.map(({description, forkCount, isFork, isPrivate, licenseInfo, name, owner, primaryLanguage, isArchived, stargazerCount, updatedAt, url}) => {
     return `
       <li class="user__repo__list__items">
@@ -175,6 +188,5 @@ const setRepoList = ({nodes}) => {
       `
     })
     .join("");
-    console.log({repoToRender})
     document.querySelector('.user__repo__list__ul').innerHTML = repoToRender
-  }
+}
