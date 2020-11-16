@@ -1,4 +1,4 @@
-export default query = `
+export const query = `
     {
         repositoryOwner(login: "coachlivinglegend") {
             avatarUrl
