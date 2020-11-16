@@ -1,4 +1,4 @@
-import query from './utils'
+import query from './utils.js'
 console.log(query)
 window.addEventListener('scroll', () => {
     if (window.scrollY >= 330) {
