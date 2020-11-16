@@ -5,11 +5,10 @@
 
 body {
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
-    /* font-family: 'Roboto', sans-serif; */
 }
 
 header{
-    background-color: black;
+    background-color: #24292e;
     display: flex;
     padding: 16px;
     font-size: 14px;
@@ -26,9 +25,9 @@ header{
 
 .header__nav input{
     margin-right: 16px;
-    height: 28px;
+    height: 32px;
     width: 250px;
-    background-color: black;
+    background-color: #24292e;
     border-radius: 5px;
     padding: 0 10px;
     color: whitesmoke;
@@ -51,7 +50,6 @@ header{
 
 i {
     color: white;
-    /* font-weight: 600; */
 }
 
 .fa-bell{
@@ -68,6 +66,11 @@ a{
     text-decoration: none;
     color: inherit;
     cursor: pointer;
+}
+
+a:hover{
+    text-decoration: underline;
+    color: #0366D6;
 }
 
 .nav__links a {
@@ -114,7 +117,6 @@ a{
 }
 
 .main__view__nav{
-    /* padding-top: 10px; */
     position: sticky;
     background-color: #fff;
     top: 0;
@@ -131,18 +133,15 @@ a{
     display: flex;
     align-items: center;
     opacity: 0;
-    /* border: 1px solid sandybrown */
 }
 
 .main__nav{
-    /* border: 1px solid aqua; */
     padding: 0 16px;
     width: 75%;
 
 }
 
 .main__nav__nav{
-    /* border: 1px solid darkgoldenrod; */
     display: flex;
 }
 
@@ -193,12 +192,11 @@ svg{
 }
 
 .repo__nav svg {
-    fill: black !important
+    fill: #24292e !important
 }
 .user__profile{
     width: 25%;
     padding: 0 16px;
-    /* border: 1px solid firebrick */
 }
 
 .user__repo{
@@ -225,14 +223,13 @@ img{
 .hidden__follow{
     display: flex;
     flex-direction: column;
-    /* margin-bottom: 5px; */
 
 }
 
 .hidden__follow button {
     padding: 0 8px !important;
     line-height: 1.5;
-    transition: opacity 0.2s;
+    transition: all 0.2s;
 }
 
 .image__wrapper img {
@@ -401,13 +398,60 @@ ul{
 }
 
 .headerForMobile{
-    background-color: black;
+    background-color: #24292e;
     display: none;
     padding: 16px;
     font-size: 14px;
     align-items: center;
     justify-content: space-between;
+}
 
+.headerForMobile .fa-bars{
+    cursor: pointer;
+}
+
+.count{
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.mobileNav{
+    background-color: #24292e;
+    padding: 0 16px 16px;
+}
+
+.active{
+    display: none;
+}
+
+.mobileNav__ul{
+    margin-top: 0;
+    color: white;
+}
+
+.mobileNav__ul > li{
+    padding: 8px 0;
+    border-top: 1px solid hsla(0,0%,100%,0.15);
+    font-weight: 600;
+}
+
+.mobileNav input{
+    margin-right: 16px;
+    margin-bottom: 16px;
+    height: 32px;
+    line-height: 20px;
+    width: 100%;
+    background-color: #24292e;
+    border-radius: 5px;
+    padding: 0 10px;
+    color: whitesmoke;
+    border: 1px solid rgb(53, 60, 66);
+}
+
+.mobile__avatar{
+    height: 24px;
+    width: 24px;
+    margin-right: 6px;
 }
 
 .main__nav.small {
@@ -428,6 +472,11 @@ ul{
     .main__nav__nav {
         overflow-x: auto;
     }
+}
+
+.webForMob{
+    display: none;
+    margin-bottom: 8px;
 }
 
 @media screen and (max-width: 775px) {
@@ -466,6 +515,11 @@ ul{
 
     .user__profile__mainDetails {
         display: flex;
+        margin-bottom: 16px;
+    }
+
+    .webForMob {
+        display: block;
     }
 
     .button__wrap{
